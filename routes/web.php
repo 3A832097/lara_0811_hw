@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeCotroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('home',[HomeCotroller::class,'index'])->name('home.index');
+
+Route::get('home/about',[\App\Http\Controllers\AboutCotroller::class,'index'])->name('about.index');
+
+Route::get('home/news',[\App\Http\Controllers\NewsCotroller::class,'index'])->name('news.index');
